@@ -5,10 +5,11 @@ import {
   DatabaseOutlined,
   WindowsOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, Input, Divider, Spin } from "antd";
+import { Layout, Menu, Spin } from "antd";
 import React, { useState } from "react";
+import Image from "next/image";
 import Searchbox from "./components/Searchbox";
-import ImageLogo from "./components/Venture World-logos_transparent.png";
+// import VcImg from "venture.png";
 const { Header, Sider, Content } = Layout;
 
 export default function Home() {
@@ -17,9 +18,13 @@ export default function Home() {
   return (
     <Layout className="layout">
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        {/* <div className="logo" /> */}
         <div className="logo">
-          <img src={ImageLogo}></img>
+          <Image
+            src="/Transparent.png"
+            alt="Picture of the author"
+            fill={true}
+            style={{ objectFit: "contain" }}
+          />
         </div>
         <Menu
           theme="dark"
@@ -69,6 +74,15 @@ export default function Home() {
               padding: 24,
             }}
           >
+            <Image
+              src="/Funders-logos.jpeg"
+              alt="Picture of the author"
+              width={300}
+              height={250}
+              style={{
+                marginLeft: "38%",
+              }}
+            />
             <Searchbox />
           </Content>
         )}

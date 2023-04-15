@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Input, Form } from "antd";
+import { Input, Typography } from "antd";
+import CompanyProfile from "./CompanyProfile";
 import axios from "axios";
 
 const Searchbox = () => {
+  const { Title } = Typography;
   const { Search } = Input;
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({});
 
   const onSearch = (value) => {
-    setLoading(true);
     axios({
       // Endpoint to send files
       url: `https://api.apollo.io/v1/organizations/enrich?api_key=sB2R-mgUzTjUZx0WZVP6kw&domain=${value}`,
@@ -16,7 +18,8 @@ const Searchbox = () => {
       // Handle the response from backend here
       .then((res) => {
         console.log(res);
-        setLoading(false);
+        setData(res);
+        setLoading(true);
       })
 
       // Catch errors if any
@@ -28,14 +31,38 @@ const Searchbox = () => {
 
   return (
     <div>
-      <h2>Enter Company URL</h2>
-      <Search
-        style={{
-          margin: "12px 8px",
-          width: 200,
-        }}
-        onSearch={onSearch}
-      />
+      {loading ? (
+        <CompanyProfile data={data} />
+      ) : (
+        <>
+          <div
+            style={{
+              marginLeft: "30%",
+              position: "relative",
+              marginTop: "20px",
+            }}
+          >
+            <Title level={2}>Get Information About any Company</Title>
+          </div>
+
+          <div
+            style={{
+              margin: "12px 8px",
+              marginLeft: "500px",
+              marginTop: "30px",
+            }}
+          >
+            <Search
+              style={{
+                width: 250,
+                position: "relative",
+              }}
+              placeholder={"Enter Company URL"}
+              onSearch={onSearch}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 };
