@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Input, Typography } from "antd";
 import CompanyProfile from "./CompanyProfile";
+import Image from "next/image";
 import axios from "axios";
 
 const Searchbox = () => {
@@ -35,6 +36,15 @@ const Searchbox = () => {
         <CompanyProfile data={data} />
       ) : (
         <>
+          <Image
+            src="/Funders-logos.jpeg"
+            alt="Picture of the author"
+            width={300}
+            height={250}
+            style={{
+              marginLeft: "38%",
+            }}
+          />
           <div
             style={{
               marginLeft: "30%",

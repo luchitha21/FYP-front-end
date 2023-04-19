@@ -36,16 +36,16 @@ export default function Home() {
               icon: <WindowsOutlined />,
               label: "Dashboard",
             },
-            {
-              key: "2",
-              icon: <DatabaseOutlined />,
-              label: "Companies",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "Blog",
-            },
+            // {
+            //   key: "2",
+            //   icon: <DatabaseOutlined />,
+            //   label: "Companies",
+            // },
+            // {
+            //   key: "3",
+            //   icon: <UploadOutlined />,
+            //   label: "Blog",
+            // },
           ]}
         />
       </Sider>
@@ -74,15 +74,6 @@ export default function Home() {
               padding: 24,
             }}
           >
-            <Image
-              src="/Funders-logos.jpeg"
-              alt="Picture of the author"
-              width={300}
-              height={250}
-              style={{
-                marginLeft: "38%",
-              }}
-            />
             <Searchbox />
           </Content>
         )}

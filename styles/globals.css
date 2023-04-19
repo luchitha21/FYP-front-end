@@ -10,6 +10,14 @@
   color: #336593;
 }
 
+.text-field {
+  color: #85839C;
+  font-size: 10px;
+  font-style: italic;
+  text-align: left;
+  margin: 8px;
+}
+
  .logo {
   height: 90px;
   /* margin: 16px; */
@@ -29,4 +37,8 @@
 .layout {
   min-height: 100vh;
 
+}
+
+.ant-form-item-label label{
+  font-size: 20px;
 }
