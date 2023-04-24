@@ -117,42 +117,225 @@ const CompanyProfile = ({ data }) => {
                 </div>
               }
             >
-              <Space size={[0, 8]} wrap>
-                {allData?.keywords.map((val) => (
-                  <Tag color="geekblue">{val}</Tag>
-                ))}
-              </Space>
-              <Divider />
-              <div>
-                <Form
+              <Card>
+                <Space size={[0, 8]} wrap>
+                  {allData?.keywords.map((val) => (
+                    <Tag color="geekblue">{val}</Tag>
+                  ))}
+                </Space>
+              </Card>
+              <Divider orientation="left">
+                <p
                   style={{
-                    fontSize: "20px",
                     fontFamily: "monospace",
                     fontWeight: "bold",
                   }}
                 >
-                  <Form.Item label={"Industry"}>
-                    {data?.data?.organization?.industry}
-                  </Form.Item>
-                  <Form.Item label={"Founded Year"}>
-                    {data?.data?.organization?.founded_year}
-                  </Form.Item>
-                  <Form.Item label={"Address"}>
-                    {data?.data?.organization?.raw_address}
-                  </Form.Item>
-                  <Form.Item label={"Employees"}>
-                    {data?.data?.organization?.estimated_num_employees}
-                  </Form.Item>
-                  <Form.Item label={"Total Funding"}>
-                    {data?.data?.organization?.total_funding}$
-                  </Form.Item>
-                  <Form.Item label={"Annual Revenue"}>
-                    {data?.data?.organization?.annual_revenue}$
-                  </Form.Item>
-                  <Form.Item>
-                    {data?.data?.organization?.short_description}
-                  </Form.Item>
-                </Form>
+                  Company Information{" "}
+                </p>
+              </Divider>
+              <div style={{ margin: "5px" }}>
+                <Row>
+                  <Col>
+                    <Card
+                      style={{
+                        backgroundColor: "#F0EEEE",
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontFamily: "monospace",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Description
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: "monospace",
+                          fontWeight: "bold",
+                          color: "grey",
+                        }}
+                      >
+                        {data?.data?.organization?.short_description}
+                      </p>
+                    </Card>
+                  </Col>
+                </Row>
+                <div style={{ marginTop: "5px" }}>
+                  <Row gutter={6}>
+                    <Col>
+                      <Card
+                        style={{
+                          borderRadius: "10px",
+                          backgroundColor: "#F0EEEE",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Industry
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                            color: "grey",
+                          }}
+                        >
+                          {" "}
+                          {data?.data?.organization?.industry}
+                        </p>
+                      </Card>
+                    </Col>
+                    <Col>
+                      <Card
+                        style={{
+                          borderRadius: "10px",
+                          backgroundColor: "#F0EEEE",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Founded Year
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                            color: "grey",
+                          }}
+                        >
+                          {" "}
+                          {data?.data?.organization?.founded_year}
+                        </p>
+                      </Card>
+                    </Col>
+                    <Col>
+                      <Card
+                        style={{
+                          borderRadius: "10px",
+                          backgroundColor: "#F0EEEE",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Employees
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                            color: "grey",
+                          }}
+                        >
+                          {" "}
+                          {data?.data?.organization?.estimated_num_employees}
+                        </p>
+                      </Card>
+                    </Col>
+                  </Row>
+                </div>
+                <div style={{ marginTop: "5px" }}>
+                  <Row gutter={6}>
+                    <Col>
+                      <Card
+                        style={{
+                          borderRadius: "10px",
+                          backgroundColor: "#F0EEEE",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Address
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                            color: "grey",
+                          }}
+                        >
+                          {" "}
+                          {data?.data?.organization?.raw_address}
+                        </p>
+                      </Card>
+                    </Col>
+                  </Row>
+                </div>
+                <div style={{ marginTop: "5px" }}>
+                  <Row gutter={6}>
+                    <Col>
+                      <Card
+                        style={{
+                          borderRadius: "10px",
+                          backgroundColor: "#F0EEEE",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Annual Revenue
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                            color: "grey",
+                          }}
+                        >
+                          {" "}
+                          {data?.data?.organization?.annual_revenue} $
+                        </p>
+                      </Card>
+                    </Col>
+                    <Col>
+                      <Card
+                        style={{
+                          borderRadius: "10px",
+                          backgroundColor: "#F0EEEE",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          Total Funding
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "monospace",
+                            fontWeight: "bold",
+                            color: "grey",
+                          }}
+                        >
+                          {" "}
+                          {data?.data?.organization?.total_funding} $
+                        </p>
+                      </Card>
+                    </Col>
+                  </Row>
+                </div>
               </div>
               <Space size={[0, 8]} wrap>
                 <Tag icon={<TwitterOutlined />} color="#55acee">

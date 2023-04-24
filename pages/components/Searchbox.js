@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Typography } from "antd";
+import { Input, Typography, Alert, Space, notification } from "antd";
 import CompanyProfile from "./CompanyProfile";
 import Image from "next/image";
 import axios from "axios";
@@ -18,15 +18,22 @@ const Searchbox = () => {
     })
       // Handle the response from backend here
       .then((res) => {
-        console.log(res);
-        setData(res);
-        setLoading(true);
+        if (Object.values(res?.data).length !== 0) {
+          setData(res);
+          setLoading(true);
+        } else {
+          notification.error({
+            message: "please enter the company URL",
+          });
+        }
       })
 
       // Catch errors if any
       .catch((err) => {
-        console.log(err);
         setLoading(false);
+        notification.error({
+          message: "the company does not exist in our database",
+        });
       });
   };
 
